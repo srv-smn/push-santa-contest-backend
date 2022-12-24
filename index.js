@@ -46,70 +46,6 @@ app.listen(port, () => {
   console.log("App running at port:" + port);
 });
 
-//     const PK = config.CH_KEY;
-//     const Pkey = `0x${config.PR_KEY}`;
-//     const signer = new ethers.Wallet(Pkey);
-//   console.log("in Cron");
-//   let today;
-//   try {
-//     today = moment(new Date()).format("MM-DD");
-
-//   const data = await memoriesSchema.find({
-//     memoryDate: today,
-//   }).populate('User');
-//   console.log('level 1 length',data.length);
-
-//   data.map(async (mem) => {
-//     const profileID = mem.User.profileID;
-//     const req = gql`{
-//         followers(request: {
-//           profileId: "${profileID}"
-//         }) {
-//           items {
-//             wallet {
-//               address
-//             }
-//           }
-//         }
-//       }`;
-
-//       const followerData = await request(
-//         'https://api-mumbai.lens.dev/',
-//         req
-//       );
-//         let concatA = []
-//         console.log('followersData', followerData);
-//       followerData.followers.items.map(async(follower) => {
-//         let constantV = 'eip155:80001:'
-//         let final = `${constantV}${follower.wallet.address}`
-//         concatA.push(final)
-//       })
-//       console.log("--------------------->", concatA);
-//       let messageTitle = `Today is special for ${mem.User.Name}, let's congratulate together 🎊`
-//       const apiResponse = await PushAPI.payloads.sendNotification({
-//         signer,
-//         type: 4, // subset
-//         identityType: 2, // direct payload
-//         notification: {
-//           title: `${messageTitle}`,
-//           body: `[s: ${mem.memoryDescription}]`
-//         },
-//         payload: {
-//           title: `${messageTitle}`,
-//           body: `[s: ${mem.memoryDescription}]`,
-//           cta: '',
-//           img: ''
-//         },
-//         recipients: concatA, // recipients addresses
-//         channel: `eip155:80001:${config.CH_PKEY}`, // your channel address
-//         env: 'staging'
-//       });
-//   })
-
-// } catch (error) {
-//     console.log(error);
-// }
-// });
 
 cron.schedule("* * * * *", async () => {
   const PK = config.CH_KEY;
@@ -204,7 +140,7 @@ cron.schedule("* * * * *", async () => {
 
           let messageTitle = `${balance} ${metadata["data"]["result"].name} Credited`;
           let messageBody = `Your wallet ${user.walletAddress} has been credited with ${balance} ${metadata["data"]["result"].name}. Your current available balance is ${balance} ${metadata["data"]["result"].name}`;
-          let constantV = "eip155:80001:";
+          let constantV = "eip155:5:";
           let final = `${constantV}${user.walletAddress}`;
           let recipients = final;
           console.log("new coin detected");
@@ -225,7 +161,7 @@ cron.schedule("* * * * *", async () => {
               img: metadata["data"]["result"].logo,
             },
             recipients: final, // recipients addresses
-            channel: `eip155:80001:${config.CH_PKEY}`, // your channel address
+            channel: `eip155:5:${config.CH_PKEY}`, // your channel address
             env: "staging",
           });
           console.log("notification sent");
@@ -237,7 +173,7 @@ cron.schedule("* * * * *", async () => {
             diff = Math.abs(diff);
             let messageTitle = `${diff} ${metadata["data"]["result"].name} Credited`;
             let messageBody = `Your wallet ${user.walletAddress} has been credited with ${diff} ${metadata["data"]["result"].name}. Your current available balance is ${balance} ${metadata["data"]["result"].name}`;
-            let constantV = "eip155:80001:";
+            let constantV = "eip155:5:";
             let final = `${constantV}${user.walletAddress}`;
             let recipients = final;
             console.log("new coin detected");
@@ -258,7 +194,7 @@ cron.schedule("* * * * *", async () => {
                 img: metadata["data"]["result"].logo,
               },
               recipients: final, // recipients addresses
-              channel: `eip155:80001:${config.CH_PKEY}`, // your channel address
+              channel: `eip155:5:${config.CH_PKEY}`, // your channel address
               env: "staging",
             });
             userBalance.amount = balance;
@@ -270,7 +206,7 @@ cron.schedule("* * * * *", async () => {
               diff = Math.abs(diff);
               let messageTitle = `${diff} ${metadata["data"]["result"].name} Debited`;
               let messageBody = `Your wallet ${user.walletAddress} has been debited with ${diff} ${metadata["data"]["result"].name}. Your current available balance is ${balance} ${metadata["data"]["result"].name}`;
-              let constantV = "eip155:80001:";
+              let constantV = "eip155:5:";
               let final = `${constantV}${user.walletAddress}`;
               let recipients = final;
               console.log("new coin detected");
@@ -291,7 +227,7 @@ cron.schedule("* * * * *", async () => {
                   img: metadata["data"]["result"].logo,
                 },
                 recipients: final, // recipients addresses
-                channel: `eip155:80001:${config.CH_PKEY}`, // your channel address
+                channel: `eip155:5:${config.CH_PKEY}`, // your channel address
                 env: "staging",
               });
               userBalance.amount = balance;
