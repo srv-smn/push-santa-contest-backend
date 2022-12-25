@@ -6,6 +6,13 @@ Notify Me is a project that allows users to receive notifications when there is 
 
 To start using Notify Me, head over to our application at https://srv-smn.github.io/Push-Santa-Contest-Frontend/ and connect your wallet to the Goerli Testnet. Once connected, click on subscribe and it will opt you in to the push notification channel. You will then start receiving notifications whenever there is a deposit or withdrawal in your wallet for ERC20 tokens.
 
+### Web App
+![image](https://user-images.githubusercontent.com/47235134/209458755-063a205a-9fa6-48c0-8031-3c2f3ce9e170.png)
+
+### Notification
+![image](https://user-images.githubusercontent.com/47235134/209459210-9bf7f5ae-809f-435d-9942-3be7b568e47b.png)
+
+
 ## Important URL:
 <a href="https://github.com/srv-smn/Push-Santa-Contest-Frontend">Frontend Repo</a>
 
