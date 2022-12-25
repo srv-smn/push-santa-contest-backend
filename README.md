@@ -15,6 +15,9 @@ Our service is free to use.
 ### Web App
 ![image](https://user-images.githubusercontent.com/47235134/209458755-063a205a-9fa6-48c0-8031-3c2f3ce9e170.png)
 
+### Push Channel
+![image](https://user-images.githubusercontent.com/47235134/209459745-8ee3efdc-e2d3-468b-bd76-809a7bf1dd9a.png)
+
 ### Notification
 ![image](https://user-images.githubusercontent.com/47235134/209459210-9bf7f5ae-809f-435d-9942-3be7b568e47b.png)
 
